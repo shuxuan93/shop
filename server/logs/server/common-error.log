@@ -1,8 +1,16 @@
-2019-12-31 12:21:05,026 ERROR 6528 nodejs.ClusterClientNoResponseError: client no response in 847063ms exceeding maxIdleTime 60000ms, maybe the connection is close on other side.
+2020-01-03 13:37:07,960 ERROR 7524 nodejs.ClusterClientNoResponseError: client no response in 2491423ms exceeding maxIdleTime 60000ms, maybe the connection is close on other side.
     at Timeout._onTimeout (c:\Users\Administrator\Desktop\shop\server\node_modules\_cluster-client@3.0.1@cluster-client\lib\leader.js:77:23)
     at listOnTimeout (internal/timers.js:537:17)
     at processTimers (internal/timers.js:481:7)
 name: "ClusterClientNoResponseError"
-pid: 6528
+pid: 7524
+hostname: WIN10-710312009
+
+2020-01-03 15:53:39,751 ERROR 7524 nodejs.ClusterClientNoResponseError: client no response in 868248ms exceeding maxIdleTime 60000ms, maybe the connection is close on other side.
+    at Timeout._onTimeout (c:\Users\Administrator\Desktop\shop\server\node_modules\_cluster-client@3.0.1@cluster-client\lib\leader.js:77:23)
+    at listOnTimeout (internal/timers.js:537:17)
+    at processTimers (internal/timers.js:481:7)
+name: "ClusterClientNoResponseError"
+pid: 7524
 hostname: WIN10-710312009
 

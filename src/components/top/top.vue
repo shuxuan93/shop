@@ -11,13 +11,14 @@
         </van-swipe-item>
       </van-swipe>
     </div>
-    <div class="category">
+    <div class="category" name="category">
       <van-grid :column-num="5" clickable border:flase>
         <van-grid-item
           v-for="(item,index) in list"
           :key="index"
           :icon="item.image"
           :text="item.mallCategoryName"
+          @click="go(item.mallCategoryId)"
         />
       </van-grid>
     </div>
@@ -40,16 +41,14 @@
                 <div class="shopcart">
                   <van-icon size="26px" name="shopping-cart-o" />
                 </div>
-                <div class="check">查看详情</div>
+                <div class="check" @click="goto(item.goodsId)">查看详情</div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div>
-      
-    </div>
+    <div></div>
   </div>
 </template>
 
@@ -66,9 +65,7 @@ export default {
       PICTURE_ADDRESS: ""
     };
   },
-  components: {
-    
-  },
+  components: {},
   methods: {
     getRecommend() {
       this.$api
@@ -79,18 +76,25 @@ export default {
           this.list = res.data.category;
           this.imagesdata = res.data.slides;
           this.recommend = res.data.recommend;
-          console.log(this.recommend);
+          this.mallCategoryId=res.data.category.mallCategoryId
+          console.log(this.mallCategoryId);
         })
         .catch(err => {
           console.log(err);
         });
     },
-    goto() {
-      this.$router.pash();
+    goto(item) {
+      console.log(item);
+      this.$router.push({ name: "details", query: { goodsId: item } });
+    },
+    go(item) {
+      console.log(item);
+      this.$router.push({ name: "category", params: { mallCategoryId: item } });
     },
     flash() {
       this.bs = new BScroll(".wrapper", {
-        scrollX: true
+        scrollX: true,
+        click: true
       });
     }
   },
@@ -126,7 +130,7 @@ export default {
     }
   }
 }
-.recommendTitel{
+.recommendTitel {
   height: 20px;
   background: #fff;
   margin-top: 10px;
@@ -145,7 +149,6 @@ export default {
     width: 2125px;
   }
 }
-
 .recommendBox {
   width: 125px;
   display: flex;
@@ -167,11 +170,7 @@ export default {
 .mallPrice {
   text-decoration: line-through;
   color: #aaa;
-  
   font-size: 12px;
-}
-.price{
-  // margin-left: 5px;
 }
 .btn {
   display: flex;

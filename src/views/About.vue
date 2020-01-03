@@ -6,6 +6,7 @@
           <shoppingMall></shoppingMall>
           <top></top>
           <floor></floor>
+          <hotshop></hotshop>
         </div>
       </div>
     </van-pull-refresh>
@@ -17,6 +18,8 @@ import BScroll from "better-scroll";
 import shoppingMall from "../components/shoppingMall/shoppingMall";
 import top from "../components/top/top";
 import floor from '../components/top/floor'
+import hotshop from '../components/top/hotshop'
+
 export default {
   data() {
     return {
@@ -26,7 +29,9 @@ export default {
   components: {
     shoppingMall,
     top,
-    floor
+    floor,
+    hotshop,
+    
   },
   methods: {
     onRefresh() {

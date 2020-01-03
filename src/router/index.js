@@ -9,11 +9,18 @@ const routes = [{
         name: '',
         component: Home,
         children: [{
-            path: '/',
-            name: 'about',
-            component: () =>
-                import ('../views/about')
-        }]
+                path: '',
+                name: 'about',
+                component: () =>
+                    import ('../views/about')
+            },
+            {
+                path: '/category',
+                name: 'category',
+                component: () =>
+                    import ('../views/category/category')
+            }
+        ]
     },
     {
         path: '/details',
